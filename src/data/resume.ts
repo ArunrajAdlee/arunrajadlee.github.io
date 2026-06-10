@@ -11,7 +11,7 @@ const resume: Resume = {
     linkedin: 'https://www.linkedin.com/in/arunrajadlee',
     linkedinLabel: 'linkedin.com/in/arunrajadlee',
     location: 'Laval, QC',
-    resumeUrl: '/Anton-Arunraj-Adlee-CV.pdf',
+    resumeUrl: `${import.meta.env.BASE_URL}Anton-Arunraj-Adlee-CV.pdf`,
   },
   summary:
     'Full stack developer with 5+ years building B2B SaaS at Keatext. Led frontend delivery for three years, driving TypeScript adoption, a Redux Toolkit migration, and a monorepo architecture. Moved into full-stack work across Scala/ZIO, PostgreSQL, and AWS/Terraform. Experienced mentor and cross-functional collaborator in agile product teams.',

@@ -61,7 +61,8 @@ export default function Navbar() {
           >
             <Box>
               <img
-                src='/favicon.png'
+                src={`${import.meta.env.BASE_URL}favicon.png`}
+                alt=''
                 width={32}
                 style={{ marginTop: '6px' }}
               ></img>
