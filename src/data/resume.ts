@@ -71,7 +71,7 @@ const resume: Resume = {
         'Managed AWS infrastructure provisioning and ongoing maintenance using Terraform.',
         'Built and maintained GitLab CI/CD pipelines for frontend and backend deployments.',
         'Partnered with backend engineers on API design, cross-layer debugging, and production incident response.',
-        'Adopted AI-assisted development tooling (Cursor) to accelerate delivery, exploration, and onboarding on unfamiliar parts of the stack.',
+        'Led adoption of AI-assisted development tooling (Cursor/Claude Code) across the team, accelerating delivery, onboarding, and exploration of unfamiliar parts of the stack',
       ],
     },
     {
