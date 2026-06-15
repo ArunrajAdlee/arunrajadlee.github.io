@@ -46,7 +46,7 @@ export default function ExperienceItem({ role }: { role: Experience }) {
         <Chip
           size='small'
           label={`${role.start} – ${role.end}`}
-          sx={{ bgcolor: 'rgba(100,255,218,0.10)', color: 'primary.main' }}
+          sx={{ bgcolor: 'rgba(206,17,65,0.15)', color: 'primary.main' }}
         />
         <Chip
           size='small'
