@@ -1,7 +1,8 @@
 import { createTheme } from '@mui/material/styles';
 
-const ACCENT = '#64ffda';
-const ACCENT_2 = '#7c5cff';
+// Houston Rockets palette: red primary, silver secondary, near-black surfaces.
+const ACCENT = '#CE1141'; // Rockets red
+const ACCENT_2 = '#C4CED4'; // Rockets silver
 
 const theme = createTheme({
   palette: {
@@ -9,14 +10,14 @@ const theme = createTheme({
     primary: { main: ACCENT },
     secondary: { main: ACCENT_2 },
     background: {
-      default: '#0a0e17',
-      paper: '#111725',
+      default: '#0c0c0f',
+      paper: '#16161b',
     },
     text: {
-      primary: '#e6edf3',
-      secondary: '#9aa7b8',
+      primary: '#f2f2f3',
+      secondary: '#a1a1aa',
     },
-    divider: 'rgba(148, 163, 184, 0.16)',
+    divider: 'rgba(212, 212, 216, 0.14)',
   },
   shape: { borderRadius: 12 },
   typography: {
@@ -35,15 +36,15 @@ const theme = createTheme({
       styleOverrides: {
         html: { scrollBehavior: 'smooth' },
         body: {
-          backgroundColor: '#0a0e17',
+          backgroundColor: '#0c0c0f',
           // subtle ambient glow
           backgroundImage:
-            'radial-gradient(60rem 60rem at 70% -10%, rgba(124,92,255,0.12), transparent 60%),' +
-            'radial-gradient(50rem 50rem at -10% 10%, rgba(100,255,218,0.10), transparent 55%)',
+            'radial-gradient(60rem 60rem at 70% -10%, rgba(206,17,65,0.16), transparent 60%),' +
+            'radial-gradient(50rem 50rem at -10% 10%, rgba(206,17,65,0.08), transparent 55%)',
           backgroundAttachment: 'fixed',
         },
         '::selection': {
-          background: 'rgba(100,255,218,0.30)',
+          background: 'rgba(206,17,65,0.35)',
         },
         '@media (prefers-reduced-motion: reduce)': {
           html: { scrollBehavior: 'auto' },
