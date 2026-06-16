@@ -45,9 +45,8 @@ export default function About() {
           >
             <Stack
               direction='column'
-              alignItems='center'
               spacing={3}
-              sx={{ flexShrink: 0 }}
+              sx={{ flexShrink: 0, alignItems: 'center' }}
             >
               {emojis.map((emoji) => (
                 <Typography
