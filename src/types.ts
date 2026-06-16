@@ -35,6 +35,7 @@ export interface Education {
 export interface Resume {
   profile: Profile;
   summary: string;
+  about: string[];
   skills: SkillGroup[];
   experience: Experience[];
   education: Education[];
