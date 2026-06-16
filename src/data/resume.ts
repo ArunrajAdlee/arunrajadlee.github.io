@@ -15,6 +15,11 @@ const resume: Resume = {
   },
   summary:
     'Full stack developer with 5+ years building B2B SaaS at Keatext. Led frontend delivery for three years, driving TypeScript adoption, a Redux Toolkit migration, and a monorepo architecture. Moved into full-stack work across Scala/ZIO, PostgreSQL, and AWS/Terraform. Experienced mentor and cross-functional collaborator in agile product teams.',
+  about: [
+    "I'm a full-stack developer based in the Greater Montréal area, with five years of hands-on experience building B2B SaaS at Keatext. I started on the frontend and gradually expanded into the backend, infrastructure, and architecture layers — and that's exactly where I want to go deeper. I'm drawn to the architecture side of development: how systems are designed, how services communicate, and how the right data model shapes everything built on top of it.",
+    "I'm at my best when I'm collaborating. Before a line of code gets written, I like to brainstorm with the team — the best ideas almost always come out of that back-and-forth. I've led frontend teams, mentored junior devs, and worked closely with backend engineers and product managers. That cross-functional context has shaped how I think about software: with the whole picture in mind, not just the slice in front of me.",
+    "Outside of work I'm usually gaming, watching anime, walking my dog Kodi, or following the Houston Rockets — yes, even through the rebuilding years. I find the same satisfaction in a well-executed play as in a clean system design: everything moving in sync.",
+  ],
   skills: [
     {
       label: 'Programming',
@@ -47,7 +52,7 @@ const resume: Resume = {
         'Auth0',
         'Postman',
         'Slack',
-        'Claude Code'
+        'Claude Code',
       ],
     },
     {
