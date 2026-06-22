@@ -10,6 +10,7 @@ const resume: Resume = {
     phone: '514-962-8564',
     linkedin: 'https://www.linkedin.com/in/arunrajadlee',
     linkedinLabel: 'linkedin.com/in/arunrajadlee',
+    github: 'https://github.com/ArunrajAdlee',
     location: 'Laval, QC',
     resumeUrl: `${import.meta.env.BASE_URL}Anton-Arunraj-Adlee-CV.pdf`,
   },
