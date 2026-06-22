@@ -6,6 +6,7 @@ export interface Profile {
   phone: string;
   linkedin: string; // full URL
   linkedinLabel: string; // display text
+  github: string; // full URL
   location: string;
   resumeUrl: string; // path to downloadable PDF in /public
 }
