@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "check": "prettier --check . && eslint .",
+    "check": "prettier --check --write . && eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
