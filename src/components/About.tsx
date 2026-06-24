@@ -1,6 +1,7 @@
 import { Box, Stack, Typography } from '@mui/material';
 import Section from './Section';
 import resume from '../data/resume';
+import { cardSx } from '../styles/card';
 
 const BLURBS = [
   {
@@ -31,16 +32,10 @@ export default function About() {
           <Box
             key={index}
             sx={{
+              ...cardSx,
               display: 'flex',
               gap: { xs: 2, md: 3 },
               alignItems: align,
-              bgcolor: 'background.paper',
-              border: '1px solid',
-              borderColor: 'divider',
-              borderRadius: 3,
-              p: { xs: 2.5, md: 3 },
-              transition: 'border-color 0.25s',
-              '&:hover': { borderColor: 'primary.main' },
             }}
           >
             <Stack

@@ -8,23 +8,11 @@ import {
 } from '@mui/material';
 import ArrowRightIcon from '@mui/icons-material/ArrowRightAlt';
 import type { Experience } from '../types';
+import { cardSx } from '../styles/card';
 
 export default function ExperienceItem({ role }: { role: Experience }) {
   return (
-    <Box
-      sx={{
-        bgcolor: 'background.paper',
-        border: '1px solid',
-        borderColor: 'divider',
-        borderRadius: 3,
-        p: { xs: 2.5, md: 3 },
-        transition: 'border-color 0.25s, transform 0.25s',
-        '&:hover': {
-          borderColor: 'primary.main',
-          transform: 'translateY(-2px)',
-        },
-      }}
-    >
+    <Box sx={cardSx}>
       <Box
         sx={{
           display: 'flex',

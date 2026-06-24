@@ -161,6 +161,22 @@ const resume: Resume = {
       ],
     },
   ],
+  projects: [
+    {
+      name: 'Portfolio',
+      description:
+        'The site you\'re using right now! A fast, responsive personal portfolio built with React, TypeScript, MUI, and Vite, with Framer Motion reveals and a data-driven content model. Deployed to GitHub Pages.',
+      tech: ['React', 'TypeScript', 'MUI', 'Vite', 'Framer Motion'],
+      github: 'https://github.com/ArunrajAdlee/arunrajadlee.github.io',
+    },
+    {
+      name: 'My userscripts',
+      description:
+        'A growing collection of browser userscripts that automate repetitive tasks and add convenience features across sites — YouTube playback macros and frame downloading, gaming storefront link injection on Backloggd, gym form autofill, and batch search. Written in vanilla JavaScript and run via Tampermonkey/Violentmonkey.',
+      tech: ['JavaScript', 'Userscripts', 'Tampermonkey', 'DOM APIs'],
+      github: 'https://github.com/ArunrajAdlee/userscripts',
+    },
+  ],
   education: [
     {
       institution: 'Concordia University',
