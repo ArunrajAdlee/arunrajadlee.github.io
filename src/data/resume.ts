@@ -47,6 +47,7 @@ const resume: Resume = {
         'IntelliJ',
         'VS Code',
         'Cursor',
+        'Docker',
         'Figma',
         'AWS',
         'AWS Bedrock',
