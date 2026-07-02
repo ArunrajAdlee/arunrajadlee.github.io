@@ -33,20 +33,11 @@ export interface Education {
   details: string[];
 }
 
-export interface Project {
-  name: string;
-  description: string;
-  tech: string[];
-  github: string; // full URL to the repo
-  demo?: string; // optional live/demo URL
-}
-
 export interface Resume {
   profile: Profile;
   summary: string;
   about: string[];
   skills: SkillGroup[];
   experience: Experience[];
-  projects: Project[];
   education: Education[];
 }
