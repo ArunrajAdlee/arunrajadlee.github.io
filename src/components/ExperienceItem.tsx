@@ -7,6 +7,7 @@ import {
   Typography,
 } from '@mui/material';
 import ArrowRightIcon from '@mui/icons-material/ArrowRightAlt';
+import { alpha } from '@mui/material/styles';
 import type { Experience } from '../types';
 import { cardSx } from '../styles/card';
 
@@ -34,7 +35,10 @@ export default function ExperienceItem({ role }: { role: Experience }) {
         <Chip
           size='small'
           label={`${role.start} – ${role.end}`}
-          sx={{ bgcolor: 'rgba(206,17,65,0.15)', color: 'primary.main' }}
+          sx={(theme) => ({
+            bgcolor: alpha(theme.palette.primary.main, 0.15),
+            color: 'primary.main',
+          })}
         />
         <Chip
           size='small'

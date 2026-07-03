@@ -1,4 +1,5 @@
 import { Box, Skeleton, Stack, Tooltip, Typography } from '@mui/material';
+import { alpha, useTheme } from '@mui/material/styles';
 import { motion, useReducedMotion } from 'framer-motion';
 import resume from '../data/resume';
 import useGitHubContributions, {
@@ -6,15 +7,6 @@ import useGitHubContributions, {
 } from '../hooks/useGitHubContributions';
 
 const MotionBox = motion(Box);
-
-// Empty cell first, then the Rockets-red scale ramping up by intensity.
-const LEVEL_COLORS = [
-  'rgba(255,255,255,0.06)',
-  'rgba(206,17,65,0.30)',
-  'rgba(206,17,65,0.52)',
-  'rgba(206,17,65,0.76)',
-  '#CE1141',
-];
 
 const CELL = 11; // px square size
 const GAP = 3; // px gap between squares
@@ -90,9 +82,22 @@ function formatDate(iso: string): string {
 
 export default function ContributionGraph() {
   const reduce = useReducedMotion();
+  const theme = useTheme();
   const { days, total, loading, error } = useGitHubContributions(
     resume.profile.github,
   );
+
+  const accent = theme.palette.primary.main;
+  const isDark = theme.palette.mode === 'dark';
+  // Empty cell first, then the accent scale ramping up by intensity.
+  const LEVEL_COLORS = [
+    isDark ? 'rgba(255,255,255,0.06)' : 'rgba(15,23,42,0.06)',
+    alpha(accent, 0.3),
+    alpha(accent, 0.52),
+    alpha(accent, 0.76),
+    accent,
+  ];
+  const cellOutline = isDark ? 'rgba(255,255,255,0.03)' : 'rgba(15,23,42,0.06)';
 
   if (loading) {
     return (
@@ -199,7 +204,7 @@ export default function ContributionGraph() {
                             height: CELL,
                             borderRadius: '2px',
                             bgcolor: LEVEL_COLORS[day.level],
-                            outline: '1px solid rgba(255,255,255,0.03)',
+                            outline: `1px solid ${cellOutline}`,
                             outlineOffset: '-1px',
                           }}
                         />

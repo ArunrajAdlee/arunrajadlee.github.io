@@ -11,11 +11,11 @@ export default function Education() {
         {resume.education.map((ed) => (
           <Box
             key={ed.institution}
-            sx={{
-              ...cardSx,
+            sx={(theme) => ({
+              ...cardSx(theme),
               display: 'flex',
               gap: 2,
-            }}
+            })}
           >
             <SchoolIcon sx={{ color: 'primary.main', mt: 0.5 }} />
             <Box sx={{ flex: 1 }}>
