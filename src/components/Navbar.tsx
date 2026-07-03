@@ -15,8 +15,12 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import DownloadIcon from '@mui/icons-material/Download';
+import LightModeIcon from '@mui/icons-material/LightModeOutlined';
+import DarkModeIcon from '@mui/icons-material/DarkModeOutlined';
 import { useState } from 'react';
+import { alpha } from '@mui/material/styles';
 import resume from '../data/resume';
+import { useColorMode } from '../color-mode';
 
 const NAV_LINKS = [
   { label: 'About', href: '#about' },
@@ -28,6 +32,7 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const { mode, toggle } = useColorMode();
   const elevated = useScrollTrigger({
     disableHysteresis: true,
     threshold: 16,
@@ -38,7 +43,9 @@ export default function Navbar() {
       position='fixed'
       elevation={0}
       sx={{
-        bgcolor: elevated ? 'rgba(10,14,23,0.78)' : 'transparent',
+        bgcolor: elevated
+          ? (theme) => alpha(theme.palette.background.default, 0.78)
+          : 'transparent',
         backdropFilter: elevated ? 'blur(12px)' : 'none',
         borderBottom: elevated ? '1px solid' : '1px solid transparent',
         borderColor: 'divider',
@@ -68,7 +75,7 @@ export default function Navbar() {
                 style={{ marginTop: '6px' }}
               ></img>
             </Box>
-            AA
+            AAA
             <Box component='span' sx={{ color: 'primary.main' }}>
               .
             </Box>
@@ -102,6 +109,18 @@ export default function Navbar() {
               Résumé
             </Button>
           </Box>
+
+          <IconButton
+            color='inherit'
+            onClick={toggle}
+            aria-label={`Switch to ${mode === 'dark' ? 'light' : 'dark'} theme`}
+            sx={{
+              color: 'text.secondary',
+              '&:hover': { color: 'text.primary' },
+            }}
+          >
+            {mode === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
+          </IconButton>
 
           <IconButton
             edge='end'
