@@ -31,12 +31,12 @@ export default function About() {
         {BLURBS.map(({ emojis, label, index, align }) => (
           <Box
             key={index}
-            sx={{
-              ...cardSx,
+            sx={(theme) => ({
+              ...cardSx(theme),
               display: 'flex',
               gap: { xs: 2, md: 3 },
               alignItems: align,
-            }}
+            })}
           >
             <Stack
               direction='column'

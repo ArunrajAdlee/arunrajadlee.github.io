@@ -1,11 +1,4 @@
-import {
-  Box,
-  Button,
-  Link,
-  Skeleton,
-  Stack,
-  Typography,
-} from '@mui/material';
+import { Box, Button, Link, Skeleton, Stack, Typography } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import ForkRightIcon from '@mui/icons-material/ForkRight';
@@ -83,19 +76,15 @@ function RepoCard({ repo }: { repo: GitHubRepo }) {
       href={repo.htmlUrl}
       target='_blank'
       rel='noopener'
-      sx={{
-        ...cardSx,
+      sx={(theme) => ({
+        ...cardSx(theme),
         display: 'flex',
         flexDirection: 'column',
         textDecoration: 'none',
         color: 'inherit',
-      }}
+      })}
     >
-      <Stack
-        direction='row'
-        spacing={1}
-        sx={{ alignItems: 'center', mb: 1 }}
-      >
+      <Stack direction='row' spacing={1} sx={{ alignItems: 'center', mb: 1 }}>
         <GitHubIcon fontSize='small' sx={{ color: 'text.secondary' }} />
         <Typography
           variant='h6'
@@ -143,7 +132,9 @@ function RepoCard({ repo }: { repo: GitHubRepo }) {
           </Stack>
         )}
         <Box sx={{ flexGrow: 1 }} />
-        <Typography variant='body2'>Updated {timeAgo(repo.pushedAt)}</Typography>
+        <Typography variant='body2'>
+          Updated {timeAgo(repo.pushedAt)}
+        </Typography>
       </Stack>
     </Box>
   );
@@ -155,7 +146,11 @@ export default function GitHubActivity() {
   );
 
   return (
-    <Section id='github' eyebrow='04 — Live from GitHub' title='GitHub Activity'>
+    <Section
+      id='github'
+      eyebrow='04 — Live from GitHub'
+      title='GitHub Activity'
+    >
       {loading && (
         <>
           <Skeleton variant='text' width={280} height={32} sx={{ mb: 3 }} />
@@ -179,7 +174,7 @@ export default function GitHubActivity() {
       )}
 
       {!loading && error && (
-        <Box sx={{ ...cardSx, textAlign: 'center' }}>
+        <Box sx={(theme) => ({ ...cardSx(theme), textAlign: 'center' })}>
           <Typography sx={{ color: 'text.secondary', mb: 2 }}>
             Couldn't load live GitHub data right now — but the repos are all
             there.

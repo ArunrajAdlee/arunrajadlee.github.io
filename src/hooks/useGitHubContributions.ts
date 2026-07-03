@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { usernameFromUrl } from './useGitHubActivity';
 
-
 export interface ContributionDay {
   date: string; // e.g. "2025-06-29"
   count: number;
