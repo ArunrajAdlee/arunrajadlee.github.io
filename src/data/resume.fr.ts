@@ -1,0 +1,186 @@
+import type { Resume } from '../types';
+
+const resume: Resume = {
+  profile: {
+    name: 'Anton Arunraj Adlee',
+    title: 'Développeur Full Stack',
+    tagline:
+      "Développeur full stack avec plus de 5 ans d'expérience à bâtir des SaaS B2B — React et TypeScript côté front, Scala/ZIO, PostgreSQL et AWS en dessous.",
+    email: 'arunraj.adlee@hotmail.com',
+    phone: '514-962-8564',
+    linkedin: 'https://www.linkedin.com/in/arunrajadlee',
+    linkedinLabel: 'linkedin.com/in/arunrajadlee',
+    github: 'https://github.com/ArunrajAdlee',
+    location: 'Laval, QC',
+    resumeUrl: `${import.meta.env.BASE_URL}Anton-Arunraj-Adlee-CV.pdf`,
+  },
+  summary:
+    "Développeur full stack avec plus de 5 ans d'expérience à concevoir des SaaS B2B chez Keatext. A dirigé la livraison frontend pendant trois ans, menant l'adoption de TypeScript, une migration vers Redux Toolkit et une architecture monorepo. A évolué vers le développement full-stack avec Scala/ZIO, PostgreSQL et AWS/Terraform. Mentor expérimenté et collaborateur interfonctionnel au sein d'équipes produit agiles.",
+  about: [
+    "Je suis un développeur full-stack établi dans la grande région de Montréal, avec cinq années d'expérience concrète à bâtir des SaaS B2B chez Keatext. J'ai commencé côté frontend puis me suis progressivement étendu au backend, à l'infrastructure et à l'architecture — et c'est précisément là que je veux approfondir. L'aspect architecture du développement me passionne : comment les systèmes sont conçus, comment les services communiquent, et comment le bon modèle de données façonne tout ce qui se construit par-dessus.",
+    "Je donne le meilleur de moi-même en collaboration. Avant qu'une ligne de code ne soit écrite, j'aime réfléchir avec l'équipe — les meilleures idées naissent presque toujours de ces échanges. J'ai dirigé des équipes frontend, encadré des développeurs juniors et travaillé étroitement avec des ingénieurs backend et des chefs de produit. Ce contexte interfonctionnel a façonné ma façon de penser le logiciel : avec la vue d'ensemble en tête, pas seulement la portion devant moi.",
+    "En dehors du travail, je joue aux jeux vidéo, je regarde des animes, je promène mon chien Kodi ou je suis les Rockets de Houston — oui, même pendant les années de reconstruction. Je trouve la même satisfaction dans un jeu bien exécuté que dans une conception de système bien pensée : tout bouge en synchronie.",
+  ],
+  skills: [
+    {
+      label: 'Programmation',
+      skills: [
+        'TypeScript',
+        'React',
+        'Redux & RTK / RTK Query',
+        'React Testing Library',
+        'MUI',
+        'C#',
+        'Java',
+        'Scala',
+        'ZIO',
+        'Node.js',
+        'MySQL',
+        'PostgreSQL',
+        'RESTful API',
+        'Terraform',
+      ],
+    },
+    {
+      label: 'Outils',
+      skills: [
+        'IntelliJ',
+        'VS Code',
+        'Cursor',
+        'Docker',
+        'Figma',
+        'AWS',
+        'AWS Bedrock',
+        'Git',
+        'GitLab & GitLab CI/CD',
+        'Auth0',
+        'Postman',
+        'Slack',
+        'Claude Code',
+      ],
+    },
+    {
+      label: 'Langues',
+      skills: [
+        'Anglais — parlé et écrit',
+        'Français — parlé et écrit',
+        'Tamoul — parlé',
+      ],
+    },
+  ],
+  experience: [
+    {
+      company: 'Keatext',
+      title: 'Développeur Full Stack',
+      location: 'Montréal, QC',
+      start: 'déc. 2024',
+      end: 'mai 2026',
+      bullets: [
+        "Livraison de fonctionnalités sur le frontend React/TypeScript et le backend Scala/ZIO, incluant l'accès aux données PostgreSQL et l'intégration analytique Cube.js.",
+        "Gestion du provisionnement et de la maintenance continue de l'infrastructure AWS à l'aide de Terraform.",
+        'Conception et maintenance de pipelines CI/CD GitLab pour les déploiements frontend et backend.',
+        "Collaboration avec les ingénieurs backend sur la conception d'API, le débogage multicouche et la réponse aux incidents en production.",
+        "Pilotage de l'adoption d'outils de développement assistés par IA (Cursor/Claude Code) au sein de l'équipe, accélérant la livraison, l'intégration et l'exploration de parties peu familières de la stack.",
+      ],
+    },
+    {
+      company: 'Keatext',
+      title: 'Développeur Frontend',
+      location: 'Montréal, QC',
+      start: 'mars 2021',
+      end: 'déc. 2024',
+      bullets: [
+        'Développement et test de fonctionnalités avec TypeScript, React, Redux/RTK, Material UI, React Testing Library, Vite et Vitest.',
+        "Direction de l'équipe frontend; collaboration avec le backend et le produit pour planifier, estimer, développer et assurer la QA des fonctionnalités dans un flux agile.",
+        "Introduction de TypeScript dans l'ensemble de la base de code frontend, améliorant la sûreté du typage et la cohérence du code.",
+        "Migration de l'état global de Redux classique vers Redux Toolkit et RTK Query, réduisant le code répétitif et la charge serveur grâce à la mise en cache des requêtes.",
+        "Réorganisation de l'application web en monorepo npm workspaces avec Vite, simplifiant les déploiements en marque blanche et permettant une bibliothèque de composants partagée.",
+        'Mentorat de développeurs frontend juniors par des revues de code, de la programmation en binôme et un accompagnement structuré à la base de code.',
+      ],
+    },
+    {
+      company: 'AppDirect',
+      title: 'Développeur logiciel (Stage)',
+      location: 'Montréal, QC',
+      start: 'janv. 2020',
+      end: 'mai 2020',
+      bullets: [
+        "Création autonome d'un projet Micro-UI extrayant des fonctionnalités de l'application monolithique AppMarket existante.",
+        "Utilisation de HTML/CSS, React, Redux, Redux Saga, Jest et React Testing Framework pour recréer des fonctionnalités écrites à l'origine en Apache Wicket.",
+        "Analyse du code hérité pour révéler des fonctionnalités sous-jacentes peu perceptibles depuis l'interface existante et les réimplémenter dans le nouveau projet.",
+        "Mise en place d'un pipeline Jenkins pour exécuter les tests et compiler le projet.",
+      ],
+    },
+    {
+      company: 'Nuvei',
+      title: 'Développeur logiciel (Stage)',
+      location: 'Montréal, QC',
+      start: 'sept. 2018',
+      end: 'sept. 2019',
+      bullets: [
+        'Travail en équipe pour reconstruire des applications web héritées avec des cadriciels et technologies web modernes.',
+        "Utilisation de HTML/SCSS, jQuery, JavaScript, C#, ASP.NET Core, React, Redux, TypeScript, Jest et Enzyme pour implémenter des fonctionnalités, corriger des bogues et maintenir l'application web.",
+        "Communication avec les analystes d'affaires et utilisation de récits utilisateurs pour implémenter les fonctionnalités demandées par les clients.",
+      ],
+    },
+    {
+      company: 'Graphics M&H',
+      title: 'Développeur Web (Temps partiel)',
+      location: 'Montréal, QC',
+      start: 'oct. 2016',
+      end: 'févr. 2017',
+      bullets: [
+        "Création de bannières publicitaires animées HTML5 avec HTML/CSS, ZeptoJS, GSAP et d'autres bibliothèques d'animation.",
+        'Collaboration avec les chefs de projet et les clients pour répondre à leurs besoins et ajuster le contenu.',
+        "Service à des clients tels que Sid Lee, Banque Nationale, SAQ et L'Oréal.",
+        'Tests de QA et services de traduction avec Excel et le CMS Sitecore.',
+      ],
+    },
+    {
+      company: 'Inovestor Inc.',
+      title: 'Développeur Web (Stage)',
+      location: 'Montréal, QC',
+      start: 'janv. 2016',
+      end: 'mai 2016',
+      bullets: [
+        "Création à partir de zéro d'une application web de suivi du temps et de feuilles de temps des employés, avec un autre stagiaire.",
+        'Apprentissage autodidacte des nouveaux concepts et compétences requis pour le projet.',
+        "Utilisation de HTML/CSS, Bootstrap, AngularJS, jQuery, Entity Framework et d'API RESTful pour bâtir l'application.",
+        'Rencontres régulières avec les superviseurs tout au long du stage pour discuter des améliorations à apporter.',
+      ],
+    },
+    {
+      company: 'VMC Game Labs',
+      title: 'Testeur assurance qualité (Temps partiel)',
+      location: 'Montréal, QC',
+      start: 'mai 2015',
+      end: 'oct. 2016',
+      bullets: [
+        'Test de divers jeux vidéo et signalement des problèmes dans des bases de données.',
+        "Utilisation d'outils comme TestTrack, JIRA, Excel et Outlook.",
+        "Collaboration au sein d'une équipe de 15 à 30 personnes avec plusieurs gestionnaires.",
+      ],
+    },
+  ],
+  education: [
+    {
+      institution: 'Université Concordia',
+      credential: 'B. Sc. informatique — Services et applications Web (Coop)',
+      location: 'Montréal, QC',
+      period: 'janv. 2017 – avr. 2021',
+      details: [
+        "Membre de l'Institut d'enseignement coopératif",
+        'Moyenne 3,8',
+      ],
+    },
+    {
+      institution: 'Collège Vanier',
+      credential: 'DEC en sciences informatiques et technologie',
+      location: 'St-Lambert, QC',
+      period: '2017',
+      details: ["Tableau d'honneur (2015)"],
+    },
+  ],
+};
+
+export default resume;
