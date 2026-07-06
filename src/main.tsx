@@ -1,12 +1,15 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import ThemeModeProvider from './ThemeModeProvider';
+import LocaleProvider from './LocaleProvider';
 import App from './App';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ThemeModeProvider>
-      <App />
-    </ThemeModeProvider>
+    <LocaleProvider>
+      <ThemeModeProvider>
+        <App />
+      </ThemeModeProvider>
+    </LocaleProvider>
   </StrictMode>,
 );
