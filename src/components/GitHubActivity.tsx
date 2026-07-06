@@ -2,8 +2,10 @@ import { Box, Button, Link, Skeleton, Stack, Typography } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import ForkRightIcon from '@mui/icons-material/ForkRight';
+import { FormattedMessage, useIntl } from 'react-intl';
 import Section from './Section';
-import resume from '../data/resume';
+import useResume from '../data/useResume';
+import { useLocale } from '../locale-context';
 import { cardSx } from '../styles/card';
 import useGitHubActivity, { type GitHubRepo } from '../hooks/useGitHubActivity';
 import ContributionGraph from './ContributionGraph';
@@ -30,10 +32,10 @@ function languageColor(language: string | null): string {
 }
 
 /** "3 days ago" style relative time from an ISO timestamp. */
-function timeAgo(iso: string): string {
+function timeAgo(iso: string, locale: string): string {
   const then = new Date(iso).getTime();
   const seconds = Math.round((Date.now() - then) / 1000);
-  const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
+  const rtf = new Intl.RelativeTimeFormat(locale, { numeric: 'auto' });
   const divisions: Array<[number, Intl.RelativeTimeFormatUnit]> = [
     [60, 'second'],
     [60, 'minute'],
@@ -70,6 +72,8 @@ function Stat({ value, label }: { value: number; label: string }) {
 }
 
 function RepoCard({ repo }: { repo: GitHubRepo }) {
+  const { formatMessage } = useIntl();
+  const { locale } = useLocale();
   return (
     <Box
       component='a'
@@ -98,7 +102,7 @@ function RepoCard({ repo }: { repo: GitHubRepo }) {
       <Typography
         sx={{ color: 'text.secondary', lineHeight: 1.6, mb: 2, flex: 1 }}
       >
-        {repo.description ?? 'No description provided.'}
+        {repo.description ?? formatMessage({ id: 'github.noDescription' })}
       </Typography>
 
       <Stack
@@ -133,7 +137,10 @@ function RepoCard({ repo }: { repo: GitHubRepo }) {
         )}
         <Box sx={{ flexGrow: 1 }} />
         <Typography variant='body2'>
-          Updated {timeAgo(repo.pushedAt)}
+          <FormattedMessage
+            id='github.updated'
+            values={{ time: timeAgo(repo.pushedAt, locale) }}
+          />
         </Typography>
       </Stack>
     </Box>
@@ -141,6 +148,8 @@ function RepoCard({ repo }: { repo: GitHubRepo }) {
 }
 
 export default function GitHubActivity() {
+  const { formatMessage } = useIntl();
+  const resume = useResume();
   const { user, repos, loading, error } = useGitHubActivity(
     resume.profile.github,
   );
@@ -148,8 +157,8 @@ export default function GitHubActivity() {
   return (
     <Section
       id='github'
-      eyebrow='04 — Live from GitHub'
-      title='GitHub Activity'
+      eyebrow={formatMessage({ id: 'section.github.eyebrow' })}
+      title={formatMessage({ id: 'section.github.title' })}
     >
       {loading && (
         <>
@@ -176,8 +185,7 @@ export default function GitHubActivity() {
       {!loading && error && (
         <Box sx={(theme) => ({ ...cardSx(theme), textAlign: 'center' })}>
           <Typography sx={{ color: 'text.secondary', mb: 2 }}>
-            Couldn't load live GitHub data right now — but the repos are all
-            there.
+            <FormattedMessage id='github.error' />
           </Typography>
           <Button
             variant='outlined'
@@ -187,7 +195,7 @@ export default function GitHubActivity() {
             target='_blank'
             rel='noopener'
           >
-            View GitHub profile
+            <FormattedMessage id='github.viewProfile' />
           </Button>
         </Box>
       )}
@@ -200,9 +208,24 @@ export default function GitHubActivity() {
               spacing={3}
               sx={{ mb: { xs: 3, md: 4 }, flexWrap: 'wrap', rowGap: 1 }}
             >
-              <Stat value={user.publicRepos} label='public repos' />
-              <Stat value={user.followers} label='followers' />
-              <Stat value={user.following} label='following' />
+              <Stat
+                value={user.publicRepos}
+                label={formatMessage(
+                  { id: 'github.publicRepos' },
+                  { count: user.publicRepos },
+                )}
+              />
+              <Stat
+                value={user.followers}
+                label={formatMessage(
+                  { id: 'github.followers' },
+                  { count: user.followers },
+                )}
+              />
+              <Stat
+                value={user.following}
+                label={formatMessage({ id: 'github.following' })}
+              />
               <Box sx={{ flexGrow: 1 }} />
               <Link
                 href={user.htmlUrl}
@@ -225,7 +248,7 @@ export default function GitHubActivity() {
           <ContributionGraph />
 
           <Typography sx={{ color: 'text.secondary', mb: 2 }}>
-            Most recently active repositories, pulled live from the GitHub API.
+            <FormattedMessage id='github.recentRepos' />
           </Typography>
 
           <Box

@@ -1,10 +1,17 @@
 import { Box, Chip, Stack, Typography } from '@mui/material';
+import { useIntl } from 'react-intl';
 import Section from './Section';
-import resume from '../data/resume';
+import useResume from '../data/useResume';
 
 export default function Skills() {
+  const { formatMessage } = useIntl();
+  const resume = useResume();
   return (
-    <Section id='skills' eyebrow='02 — Toolbox' title='Skills'>
+    <Section
+      id='skills'
+      eyebrow={formatMessage({ id: 'section.skills.eyebrow' })}
+      title={formatMessage({ id: 'section.skills.title' })}
+    >
       <Stack spacing={4}>
         {resume.skills.map((group) => (
           <Box key={group.label}>

@@ -1,34 +1,41 @@
 import { Box, Stack, Typography } from '@mui/material';
+import { useIntl } from 'react-intl';
 import Section from './Section';
-import resume from '../data/resume';
+import useResume from '../data/useResume';
 import { cardSx } from '../styles/card';
 
 const BLURBS = [
   {
     emojis: ['🚀'],
-    label: 'Full-Stack, Root to Branch',
+    labelId: 'about.blurb1',
     index: 0,
     align: 'flex-start',
   },
   {
     emojis: ['🤝'],
-    label: 'Wired for Collaboration',
+    labelId: 'about.blurb2',
     index: 1,
     align: 'flex-start',
   },
   {
     emojis: ['🎮', '🐶', '🏀'],
-    label: 'Off the Clock',
+    labelId: 'about.blurb3',
     index: 2,
     align: 'center',
   },
-];
+] as const;
 
 export default function About() {
+  const { formatMessage } = useIntl();
+  const resume = useResume();
   return (
-    <Section id='about' eyebrow='01 — Introduction' title='About'>
+    <Section
+      id='about'
+      eyebrow={formatMessage({ id: 'section.about.eyebrow' })}
+      title={formatMessage({ id: 'section.about.title' })}
+    >
       <Stack spacing={3} sx={{ maxWidth: 800 }}>
-        {BLURBS.map(({ emojis, label, index, align }) => (
+        {BLURBS.map(({ emojis, labelId, index, align }) => (
           <Box
             key={index}
             sx={(theme) => ({
@@ -69,7 +76,7 @@ export default function About() {
                   mb: 0.75,
                 }}
               >
-                {label}
+                {formatMessage({ id: labelId })}
               </Typography>
               <Typography
                 sx={{

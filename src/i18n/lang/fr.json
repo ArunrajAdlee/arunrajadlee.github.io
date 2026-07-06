@@ -1,0 +1,51 @@
+{
+  "nav.about": "À propos",
+  "nav.skills": "Compétences",
+  "nav.experience": "Expérience",
+  "nav.github": "GitHub",
+  "nav.education": "Formation",
+  "nav.resume": "CV",
+  "nav.openMenu": "Ouvrir le menu de navigation",
+  "nav.switchTheme": "Passer au thème {mode, select, dark {sombre} light {clair} other {}}",
+  "nav.switchLanguage": "Changer la langue pour {label}",
+
+  "hero.getInTouch": "Prendre contact",
+  "hero.downloadResume": "Télécharger le CV",
+
+  "section.about.eyebrow": "01 — Présentation",
+  "section.about.title": "À propos",
+  "section.skills.eyebrow": "02 — Boîte à outils",
+  "section.skills.title": "Compétences",
+  "section.experience.eyebrow": "03 — Mon parcours",
+  "section.experience.title": "Expérience",
+  "section.github.eyebrow": "04 — En direct de GitHub",
+  "section.github.title": "Activité GitHub",
+  "section.education.eyebrow": "05 — Parcours",
+  "section.education.title": "Formation",
+
+  "about.blurb1": "Full-Stack, de la racine à la branche",
+  "about.blurb2": "Fait pour collaborer",
+  "about.blurb3": "En dehors du travail",
+
+  "footer.heading": "Créons quelque chose ensemble.",
+  "footer.subheading": "Ouvert à de nouvelles opportunités — n'hésitez pas à me contacter.",
+  "footer.emailAria": "Envoyer un courriel à Anton",
+  "footer.linkedinAria": "Profil LinkedIn d'Anton",
+  "footer.githubAria": "Profil GitHub d'Anton",
+  "footer.callAria": "Appeler Anton",
+  "footer.builtWith": "© {year} {name} · Conçu avec React, TypeScript et MUI",
+
+  "github.publicRepos": "{count, plural, one {dépôt public} other {dépôts publics}}",
+  "github.followers": "{count, plural, one {abonné} other {abonnés}}",
+  "github.following": "abonnements",
+  "github.noDescription": "Aucune description fournie.",
+  "github.updated": "Mis à jour {time}",
+  "github.recentRepos": "Dépôts les plus récemment actifs, récupérés en direct depuis l'API GitHub.",
+  "github.error": "Impossible de charger les données GitHub pour le moment — mais tous les dépôts sont là.",
+  "github.viewProfile": "Voir le profil GitHub",
+
+  "graph.less": "Moins",
+  "graph.more": "Plus",
+  "graph.total": "{count, plural, one {# contribution au cours de la dernière année} other {# contributions au cours de la dernière année}}",
+  "graph.tooltip": "{count, plural, one {# contribution} other {# contributions}} le {date}"
+}

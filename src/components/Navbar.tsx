@@ -17,22 +17,30 @@ import MenuIcon from '@mui/icons-material/Menu';
 import DownloadIcon from '@mui/icons-material/Download';
 import LightModeIcon from '@mui/icons-material/LightModeOutlined';
 import DarkModeIcon from '@mui/icons-material/DarkModeOutlined';
+import TranslateIcon from '@mui/icons-material/Translate';
 import { useState } from 'react';
 import { alpha } from '@mui/material/styles';
-import resume from '../data/resume';
+import { FormattedMessage, useIntl } from 'react-intl';
+import useResume from '../data/useResume';
 import { useColorMode } from '../color-mode';
+import { useLocale } from '../locale-context';
+import { LOCALE_LABELS } from '../i18n/config';
 
 const NAV_LINKS = [
-  { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'GitHub', href: '#github' },
-  { label: 'Education', href: '#education' },
-];
+  { id: 'nav.about', href: '#about' },
+  { id: 'nav.skills', href: '#skills' },
+  { id: 'nav.experience', href: '#experience' },
+  { id: 'nav.github', href: '#github' },
+  { id: 'nav.education', href: '#education' },
+] as const;
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const { mode, toggle } = useColorMode();
+  const { locale, toggle: toggleLocale } = useLocale();
+  const { formatMessage } = useIntl();
+  const resume = useResume();
+  const nextLocale = locale === 'en' ? 'fr' : 'en';
   const elevated = useScrollTrigger({
     disableHysteresis: true,
     threshold: 16,
@@ -94,7 +102,7 @@ export default function Navbar() {
                   '&:hover': { color: 'text.primary' },
                 }}
               >
-                {l.label}
+                <FormattedMessage id={l.id} />
               </Button>
             ))}
             <Button
@@ -106,14 +114,35 @@ export default function Navbar() {
               startIcon={<DownloadIcon />}
               sx={{ ml: 1 }}
             >
-              Résumé
+              <FormattedMessage id='nav.resume' />
             </Button>
           </Box>
+
+          <Button
+            color='inherit'
+            onClick={toggleLocale}
+            startIcon={<TranslateIcon />}
+            aria-label={formatMessage(
+              { id: 'nav.switchLanguage' },
+              { label: LOCALE_LABELS[nextLocale] },
+            )}
+            sx={{
+              minWidth: 0,
+              color: 'text.secondary',
+              fontWeight: 700,
+              '&:hover': { color: 'text.primary' },
+            }}
+          >
+            {locale.toUpperCase()}
+          </Button>
 
           <IconButton
             color='inherit'
             onClick={toggle}
-            aria-label={`Switch to ${mode === 'dark' ? 'light' : 'dark'} theme`}
+            aria-label={formatMessage(
+              { id: 'nav.switchTheme' },
+              { mode: mode === 'dark' ? 'light' : 'dark' },
+            )}
             sx={{
               color: 'text.secondary',
               '&:hover': { color: 'text.primary' },
@@ -125,7 +154,7 @@ export default function Navbar() {
           <IconButton
             edge='end'
             color='inherit'
-            aria-label='Open navigation menu'
+            aria-label={formatMessage({ id: 'nav.openMenu' })}
             onClick={() => setOpen(true)}
             sx={{ display: { xs: 'inline-flex', md: 'none' } }}
           >
@@ -144,7 +173,7 @@ export default function Navbar() {
             {NAV_LINKS.map((l) => (
               <ListItem key={l.href} disablePadding>
                 <ListItemButton component='a' href={l.href}>
-                  <ListItemText primary={l.label} />
+                  <ListItemText primary={formatMessage({ id: l.id })} />
                 </ListItemButton>
               </ListItem>
             ))}
@@ -155,7 +184,7 @@ export default function Navbar() {
                 target='_blank'
                 rel='noopener'
               >
-                <ListItemText primary='Résumé' />
+                <ListItemText primary={formatMessage({ id: 'nav.resume' })} />
               </ListItemButton>
             </ListItem>
           </List>

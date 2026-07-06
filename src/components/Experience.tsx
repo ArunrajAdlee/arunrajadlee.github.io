@@ -7,16 +7,19 @@ import {
   TimelineSeparator,
 } from '@mui/lab';
 import { timelineItemClasses } from '@mui/lab/TimelineItem';
+import { useIntl } from 'react-intl';
 import Section from './Section';
 import ExperienceItem from './ExperienceItem';
-import resume from '../data/resume';
+import useResume from '../data/useResume';
 
 export default function Experience() {
+  const { formatMessage } = useIntl();
+  const resume = useResume();
   return (
     <Section
       id='experience'
-      eyebrow="03 — Where I've worked"
-      title='Experience'
+      eyebrow={formatMessage({ id: 'section.experience.eyebrow' })}
+      title={formatMessage({ id: 'section.experience.title' })}
       maxWidth='md'
     >
       <Timeline

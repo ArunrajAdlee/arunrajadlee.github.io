@@ -3,10 +3,12 @@ import EmailIcon from '@mui/icons-material/EmailOutlined';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import PhoneIcon from '@mui/icons-material/PhoneOutlined';
-import resume from '../data/resume';
+import { FormattedMessage, useIntl } from 'react-intl';
+import useResume from '../data/useResume';
 
 export default function Footer() {
-  const { profile } = resume;
+  const { formatMessage } = useIntl();
+  const { profile } = useResume();
   const year = new Date().getFullYear();
 
   return (
@@ -21,10 +23,10 @@ export default function Footer() {
     >
       <Container maxWidth='md'>
         <Typography variant='h5' sx={{ mb: 1 }}>
-          Let&apos;s build something.
+          <FormattedMessage id='footer.heading' />
         </Typography>
         <Typography sx={{ color: 'text.secondary', mb: 3 }}>
-          Open to new opportunities — reach out any time.
+          <FormattedMessage id='footer.subheading' />
         </Typography>
 
         <Stack
@@ -33,7 +35,7 @@ export default function Footer() {
           sx={{ justifyContent: 'center', mb: 3 }}
         >
           <IconButton
-            aria-label='Email Anton'
+            aria-label={formatMessage({ id: 'footer.emailAria' })}
             href={`mailto:${profile.email}`}
             sx={{
               color: 'text.secondary',
@@ -43,7 +45,7 @@ export default function Footer() {
             <EmailIcon />
           </IconButton>
           <IconButton
-            aria-label="Anton's LinkedIn profile"
+            aria-label={formatMessage({ id: 'footer.linkedinAria' })}
             href={profile.linkedin}
             target='_blank'
             rel='noopener'
@@ -55,7 +57,7 @@ export default function Footer() {
             <LinkedInIcon />
           </IconButton>
           <IconButton
-            aria-label="Anton's GitHub profile"
+            aria-label={formatMessage({ id: 'footer.githubAria' })}
             href={profile.github}
             target='_blank'
             rel='noopener'
@@ -67,7 +69,7 @@ export default function Footer() {
             <GitHubIcon />
           </IconButton>
           <IconButton
-            aria-label='Call Anton'
+            aria-label={formatMessage({ id: 'footer.callAria' })}
             href={`tel:${profile.phone.replace(/[^0-9+]/g, '')}`}
             sx={{
               color: 'text.secondary',
@@ -79,7 +81,10 @@ export default function Footer() {
         </Stack>
 
         <Typography variant='body2' sx={{ color: 'text.secondary' }}>
-          © {year} {profile.name} · Built with React, TypeScript & MUI
+          <FormattedMessage
+            id='footer.builtWith'
+            values={{ year, name: profile.name }}
+          />
         </Typography>
       </Container>
     </Box>

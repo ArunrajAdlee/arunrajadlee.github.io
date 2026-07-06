@@ -1,7 +1,9 @@
 import { Box, Skeleton, Stack, Tooltip, Typography } from '@mui/material';
 import { alpha, useTheme } from '@mui/material/styles';
 import { motion, useReducedMotion } from 'framer-motion';
-import resume from '../data/resume';
+import { useIntl } from 'react-intl';
+import useResume from '../data/useResume';
+import { useLocale } from '../locale-context';
 import useGitHubContributions, {
   type ContributionDay,
 } from '../hooks/useGitHubContributions';
@@ -11,25 +13,20 @@ const MotionBox = motion(Box);
 const CELL = 11; // px square size
 const GAP = 3; // px gap between squares
 const GUTTER = 26; // px width of the weekday label column
-const WEEKDAY_LABELS = ['', 'Mon', '', 'Wed', '', 'Fri', ''];
-const MONTHS = [
-  'Jan',
-  'Feb',
-  'Mar',
-  'Apr',
-  'May',
-  'Jun',
-  'Jul',
-  'Aug',
-  'Sep',
-  'Oct',
-  'Nov',
-  'Dec',
-];
+// Rows to label in the weekday gutter: Mon, Wed, Fri (Sunday === 0).
+const LABELLED_WEEKDAYS = [1, 3, 5];
 
 /** Parse an ISO calendar date as local midnight so weekday math is stable. */
 function parseDate(iso: string): Date {
   return new Date(`${iso}T00:00:00`);
+}
+
+/**
+ * Localized short weekday name for a day index (0 = Sunday). 2024-01-07 is a
+ * Sunday, so adding the index lands on the right weekday in any locale.
+ */
+function weekdayLabel(fmt: Intl.DateTimeFormat, dayOfWeek: number): string {
+  return fmt.format(new Date(2024, 0, 7 + dayOfWeek));
 }
 
 /**
@@ -54,13 +51,15 @@ function buildWeeks(days: ContributionDay[]): (ContributionDay | null)[][] {
 function monthLabel(
   weeks: (ContributionDay | null)[][],
   index: number,
+  fmt: Intl.DateTimeFormat,
 ): string {
   const firstDay = weeks[index].find(
     (day): day is ContributionDay => day !== null,
   );
   if (!firstDay) return '';
 
-  const month = parseDate(firstDay.date).getMonth();
+  const date = parseDate(firstDay.date);
+  const month = date.getMonth();
   if (index === 0) return '';
 
   const previousFirstDay = weeks[index - 1].find(
@@ -69,11 +68,11 @@ function monthLabel(
   const previousMonth = previousFirstDay
     ? parseDate(previousFirstDay.date).getMonth()
     : -1;
-  return month !== previousMonth ? MONTHS[month] : '';
+  return month !== previousMonth ? fmt.format(date) : '';
 }
 
-function formatDate(iso: string): string {
-  return parseDate(iso).toLocaleDateString('en-US', {
+function formatDate(iso: string, locale: string): string {
+  return parseDate(iso).toLocaleDateString(locale, {
     month: 'long',
     day: 'numeric',
     year: 'numeric',
@@ -83,6 +82,11 @@ function formatDate(iso: string): string {
 export default function ContributionGraph() {
   const reduce = useReducedMotion();
   const theme = useTheme();
+  const { formatMessage } = useIntl();
+  const { locale } = useLocale();
+  const resume = useResume();
+  const monthFmt = new Intl.DateTimeFormat(locale, { month: 'short' });
+  const weekdayFmt = new Intl.DateTimeFormat(locale, { weekday: 'short' });
   const { days, total, loading, error } = useGitHubContributions(
     resume.profile.github,
   );
@@ -142,7 +146,7 @@ export default function ContributionGraph() {
                     whiteSpace: 'nowrap',
                   }}
                 >
-                  {monthLabel(weeks, weekIndex)}
+                  {monthLabel(weeks, weekIndex, monthFmt)}
                 </Typography>
               </Box>
             ))}
@@ -159,7 +163,7 @@ export default function ContributionGraph() {
                 flexShrink: 0,
               }}
             >
-              {WEEKDAY_LABELS.map((label, rowIndex) => (
+              {Array.from({ length: 7 }, (_, rowIndex) => (
                 <Box
                   key={rowIndex}
                   sx={{ height: CELL, display: 'flex', alignItems: 'center' }}
@@ -168,7 +172,9 @@ export default function ContributionGraph() {
                     variant='caption'
                     sx={{ fontSize: 9, color: 'text.secondary' }}
                   >
-                    {label}
+                    {LABELLED_WEEKDAYS.includes(rowIndex)
+                      ? weekdayLabel(weekdayFmt, rowIndex)
+                      : ''}
                   </Typography>
                 </Box>
               ))}
@@ -194,9 +200,13 @@ export default function ContributionGraph() {
                       <Tooltip
                         key={dayIndex}
                         arrow
-                        title={`${day.count} contribution${
-                          day.count === 1 ? '' : 's'
-                        } on ${formatDate(day.date)}`}
+                        title={formatMessage(
+                          { id: 'graph.tooltip' },
+                          {
+                            count: day.count,
+                            date: formatDate(day.date, locale),
+                          },
+                        )}
                       >
                         <Box
                           sx={{
@@ -232,14 +242,16 @@ export default function ContributionGraph() {
         }}
       >
         <Typography variant='body2' sx={{ color: 'text.secondary' }}>
-          {total.toLocaleString()} contributions in the last year
+          {formatMessage({ id: 'graph.total' }, { count: total })}
         </Typography>
         <Stack
           direction='row'
           spacing={0.75}
           sx={{ alignItems: 'center', color: 'text.secondary' }}
         >
-          <Typography variant='caption'>Less</Typography>
+          <Typography variant='caption'>
+            {formatMessage({ id: 'graph.less' })}
+          </Typography>
           {LEVEL_COLORS.map((color) => (
             <Box
               key={color}
@@ -251,7 +263,9 @@ export default function ContributionGraph() {
               }}
             />
           ))}
-          <Typography variant='caption'>More</Typography>
+          <Typography variant='caption'>
+            {formatMessage({ id: 'graph.more' })}
+          </Typography>
         </Stack>
       </Stack>
     </Box>

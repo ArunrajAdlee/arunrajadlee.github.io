@@ -1,0 +1,51 @@
+{
+  "nav.about": "About",
+  "nav.skills": "Skills",
+  "nav.experience": "Experience",
+  "nav.github": "GitHub",
+  "nav.education": "Education",
+  "nav.resume": "Résumé",
+  "nav.openMenu": "Open navigation menu",
+  "nav.switchTheme": "Switch to {mode, select, dark {dark} light {light} other {}} theme",
+  "nav.switchLanguage": "Switch language to {label}",
+
+  "hero.getInTouch": "Get in touch",
+  "hero.downloadResume": "Download résumé",
+
+  "section.about.eyebrow": "01 — Introduction",
+  "section.about.title": "About",
+  "section.skills.eyebrow": "02 — Toolbox",
+  "section.skills.title": "Skills",
+  "section.experience.eyebrow": "03 — Where I've worked",
+  "section.experience.title": "Experience",
+  "section.github.eyebrow": "04 — Live from GitHub",
+  "section.github.title": "GitHub Activity",
+  "section.education.eyebrow": "05 — Background",
+  "section.education.title": "Education",
+
+  "about.blurb1": "Full-Stack, Root to Branch",
+  "about.blurb2": "Wired for Collaboration",
+  "about.blurb3": "Off the Clock",
+
+  "footer.heading": "Let's build something.",
+  "footer.subheading": "Open to new opportunities — reach out any time.",
+  "footer.emailAria": "Email Anton",
+  "footer.linkedinAria": "Anton's LinkedIn profile",
+  "footer.githubAria": "Anton's GitHub profile",
+  "footer.callAria": "Call Anton",
+  "footer.builtWith": "© {year} {name} · Built with React, TypeScript & MUI",
+
+  "github.publicRepos": "{count, plural, one {public repo} other {public repos}}",
+  "github.followers": "{count, plural, one {follower} other {followers}}",
+  "github.following": "following",
+  "github.noDescription": "No description provided.",
+  "github.updated": "Updated {time}",
+  "github.recentRepos": "Most recently active repositories, pulled live from the GitHub API.",
+  "github.error": "Couldn't load live GitHub data right now — but the repos are all there.",
+  "github.viewProfile": "View GitHub profile",
+
+  "graph.less": "Less",
+  "graph.more": "More",
+  "graph.total": "{count, plural, one {# contribution in the last year} other {# contributions in the last year}}",
+  "graph.tooltip": "{count, plural, one {# contribution} other {# contributions}} on {date}"
+}
