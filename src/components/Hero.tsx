@@ -4,13 +4,14 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import DownloadIcon from '@mui/icons-material/Download';
 import { motion, useReducedMotion } from 'framer-motion';
-import resume from '../data/resume';
+import { FormattedMessage } from 'react-intl';
+import useResume from '../data/useResume';
 
 const MotionBox = motion(Box);
 
 export default function Hero() {
   const reduce = useReducedMotion();
-  const { profile } = resume;
+  const { profile } = useResume();
 
   const item = {
     hidden: { opacity: 0, y: 24 },
@@ -96,7 +97,7 @@ export default function Hero() {
                 startIcon={<EmailIcon />}
                 href={`mailto:${profile.email}`}
               >
-                Get in touch
+                <FormattedMessage id='hero.getInTouch' />
               </Button>
               <Button
                 size='large'
@@ -129,7 +130,7 @@ export default function Hero() {
                 target='_blank'
                 rel='noopener'
               >
-                Download résumé
+                <FormattedMessage id='hero.downloadResume' />
               </Button>
             </Stack>
           </MotionBox>

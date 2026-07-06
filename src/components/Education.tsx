@@ -1,12 +1,19 @@
 import { Box, Stack, Typography } from '@mui/material';
 import SchoolIcon from '@mui/icons-material/SchoolOutlined';
+import { useIntl } from 'react-intl';
 import Section from './Section';
-import resume from '../data/resume';
+import useResume from '../data/useResume';
 import { cardSx } from '../styles/card';
 
 export default function Education() {
+  const { formatMessage } = useIntl();
+  const resume = useResume();
   return (
-    <Section id='education' eyebrow='05 — Background' title='Education'>
+    <Section
+      id='education'
+      eyebrow={formatMessage({ id: 'section.education.eyebrow' })}
+      title={formatMessage({ id: 'section.education.title' })}
+    >
       <Stack spacing={2.5}>
         {resume.education.map((ed) => (
           <Box
