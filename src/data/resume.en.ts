@@ -21,52 +21,10 @@ const resume: Resume = {
     "I'm at my best when I'm collaborating. Before a line of code gets written, I like to brainstorm with the team — the best ideas almost always come out of that back-and-forth. I've led frontend teams, mentored junior devs, and worked closely with backend engineers and product managers. That cross-functional context has shaped how I think about software: with the whole picture in mind, not just the slice in front of me.",
     "Outside of work I'm usually gaming, watching anime, walking my dog Kodi, or following the Houston Rockets — yes, even through the rebuilding years. I find the same satisfaction in a well-executed play as in a clean system design: everything moving in sync.",
   ],
-  skills: [
-    {
-      label: 'Programming',
-      skills: [
-        'TypeScript',
-        'React',
-        'Redux & RTK / RTK Query',
-        'React Testing Library',
-        'MUI',
-        'C#',
-        'Java',
-        'Scala',
-        'ZIO',
-        'Node.js',
-        'MySQL',
-        'PostgreSQL',
-        'RESTful API',
-        'Terraform',
-      ],
-    },
-    {
-      label: 'Tools',
-      skills: [
-        'IntelliJ',
-        'VS Code',
-        'Cursor',
-        'Docker',
-        'Figma',
-        'AWS',
-        'AWS Bedrock',
-        'Git',
-        'GitLab & GitLab CI/CD',
-        'Auth0',
-        'Postman',
-        'Slack',
-        'Claude Code',
-      ],
-    },
-    {
-      label: 'Languages',
-      skills: [
-        'English — spoken & written',
-        'French — spoken & written',
-        'Tamil — spoken',
-      ],
-    },
+  languages: [
+    'English — spoken & written',
+    'French — spoken & written',
+    'Tamil — spoken',
   ],
   experience: [
     {

@@ -21,52 +21,10 @@ const resume: Resume = {
     "Je donne le meilleur de moi-même en collaboration. Avant qu'une ligne de code ne soit écrite, j'aime réfléchir avec l'équipe — les meilleures idées naissent presque toujours de ces échanges. J'ai dirigé des équipes frontend, encadré des développeurs juniors et travaillé étroitement avec des ingénieurs backend et des chefs de produit. Ce contexte interfonctionnel a façonné ma façon de penser le logiciel : avec la vue d'ensemble en tête, pas seulement la portion devant moi.",
     "En dehors du travail, je joue aux jeux vidéo, je regarde des animes, je promène mon chien Kodi ou je suis les Rockets de Houston — oui, même pendant les années de reconstruction. Je trouve la même satisfaction dans un jeu bien exécuté que dans une conception de système bien pensée : tout bouge en synchronie.",
   ],
-  skills: [
-    {
-      label: 'Programmation',
-      skills: [
-        'TypeScript',
-        'React',
-        'Redux & RTK / RTK Query',
-        'React Testing Library',
-        'MUI',
-        'C#',
-        'Java',
-        'Scala',
-        'ZIO',
-        'Node.js',
-        'MySQL',
-        'PostgreSQL',
-        'RESTful API',
-        'Terraform',
-      ],
-    },
-    {
-      label: 'Outils',
-      skills: [
-        'IntelliJ',
-        'VS Code',
-        'Cursor',
-        'Docker',
-        'Figma',
-        'AWS',
-        'AWS Bedrock',
-        'Git',
-        'GitLab & GitLab CI/CD',
-        'Auth0',
-        'Postman',
-        'Slack',
-        'Claude Code',
-      ],
-    },
-    {
-      label: 'Langues',
-      skills: [
-        'Anglais — parlé et écrit',
-        'Français — parlé et écrit',
-        'Tamoul — parlé',
-      ],
-    },
+  languages: [
+    'Anglais — parlé et écrit',
+    'Français — parlé et écrit',
+    'Tamoul — parlé',
   ],
   experience: [
     {

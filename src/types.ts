@@ -11,11 +11,6 @@ export interface Profile {
   resumeUrl: string; // path to downloadable PDF in /public
 }
 
-export interface SkillGroup {
-  label: string;
-  skills: string[];
-}
-
 export interface Experience {
   company: string;
   title: string;
@@ -37,7 +32,7 @@ export interface Resume {
   profile: Profile;
   summary: string;
   about: string[];
-  skills: SkillGroup[];
+  languages: string[];
   experience: Experience[];
   education: Education[];
 }
