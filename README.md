@@ -10,7 +10,8 @@ Personal portfolio site built with **React + TypeScript + Vite** and **MUI (Mate
 - Vite 6 (build/dev)
 - MUI v7 + Emotion
 - `@mui/lab` Timeline
-- Framer Motion
+- Framer Motion and d3-force (for animations)
+
 
 ## Project structure
 
